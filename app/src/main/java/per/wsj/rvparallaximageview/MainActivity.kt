@@ -20,6 +20,7 @@ class MainActivity : AppCompatActivity() {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
             )
             .onGranted {
+                Toast.makeText(this, "copy assets/a0.jpg to you sdcard", Toast.LENGTH_LONG).show()
                 recyclerView.adapter = MyAdapter(recyclerView)
             }
             .onDenied {

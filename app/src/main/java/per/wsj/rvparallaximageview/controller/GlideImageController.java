@@ -31,9 +31,11 @@ public class GlideImageController extends BaseImageController {
             return;
         }
 
+        // 利用Glide获取drawable
         Glide.with(mContext).load(imageUrl).into(new SimpleTarget<Drawable>() {
             @Override
             public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
+                // 处理drawable
                 handleDrawable(viewWidth, resource);
             }
         });

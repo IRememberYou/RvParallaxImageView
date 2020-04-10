@@ -31,11 +31,13 @@ public class PicassoImageController extends BaseImageController {
             return;
         }
 
+        // 利用Picasso获取bitmap
         Picasso.with(mContext)
                 .load(imageUrl)
                 .into(new Target() {
                     @Override
                     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                        // 处理bitmap
                         handleBitmap(viewWidth, bitmap);
                     }
 

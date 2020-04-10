@@ -13,5 +13,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="看个美女休息一下" />
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_red_dark"
+        android:text="" />
 </FrameLayout>
