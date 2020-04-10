@@ -73,13 +73,6 @@ class MyAdapter(private val recyclerView: RecyclerView) : RecyclerView.Adapter<R
             }
             else -> {
                 (holder as MyViewHolder).tvTitle.text = "position:$position"
-                holder.itemView.setBackgroundColor(
-                    Color.rgb(
-                        (Math.random() * 255).toInt(),
-                        (Math.random() * 255).toInt(),
-                        (Math.random() * 255).toInt()
-                    )
-                )
             }
         }
     }
