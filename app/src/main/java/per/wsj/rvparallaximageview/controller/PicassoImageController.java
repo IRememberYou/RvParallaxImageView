@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import per.wsj.commonlib.utils.LogUtil;
 import per.wsj.lib.controller.BaseImageController;
 
 
@@ -43,7 +44,7 @@ public class PicassoImageController extends BaseImageController {
 
                     @Override
                     public void onBitmapFailed(Drawable errorDrawable) {
-
+                        LogUtil.LOGE("Picasso加载图片失败");
                     }
 
                     @Override

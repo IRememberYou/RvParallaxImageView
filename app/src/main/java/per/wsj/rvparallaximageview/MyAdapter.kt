@@ -1,13 +1,12 @@
 package per.wsj.rvparallaximageview
 
-import android.graphics.Color
 import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import per.wsj.lib.ScrollWithRvImageView
+import per.wsj.lib.RvParallaxImageView
 import per.wsj.lib.controller.LocalImageController
 import per.wsj.lib.controller.ResImageController
 import per.wsj.rvparallaximageview.controller.GlideImageController
@@ -82,7 +81,7 @@ class MyAdapter(private val recyclerView: RecyclerView) : RecyclerView.Adapter<R
     }
 
     class ImageViewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val parallaxImageView = view.findViewById<ScrollWithRvImageView>(R.id.parallaxImageView)
+        val parallaxImageView = view.findViewById<RvParallaxImageView>(R.id.parallaxImageView)
         val tvTitle = view.findViewById<TextView>(R.id.tvTitle)
     }
 }

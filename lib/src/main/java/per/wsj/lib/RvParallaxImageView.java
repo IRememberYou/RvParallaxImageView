@@ -16,7 +16,7 @@ import per.wsj.lib.utils.Logger;
  *
  */
 
-public class ScrollWithRvImageView extends View {
+public class RvParallaxImageView extends View {
 
     /**
      * 图片往上最大的偏移量
@@ -74,15 +74,15 @@ public class ScrollWithRvImageView extends View {
      */
     private int rvHeight;
 
-    public ScrollWithRvImageView(Context context) {
+    public RvParallaxImageView(Context context) {
         this(context, null);
     }
 
-    public ScrollWithRvImageView(Context context, @Nullable AttributeSet attrs) {
+    public RvParallaxImageView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public ScrollWithRvImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public RvParallaxImageView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -97,7 +97,7 @@ public class ScrollWithRvImageView extends View {
                 resetScaleFactor(height);
                 getLocationInWindow(viewLocation);
                 topOffscreen = -(viewLocation[1] - rvLocation[1]) * scaleFactor;
-                boundTop();
+                bindTopOrBottom();
                 if (viewLocation[1] == 0) {// view还未显示出来就已经执行了，因此位置计算异常不用刷新
                     return;
                 }
@@ -119,9 +119,10 @@ public class ScrollWithRvImageView extends View {
         mImageController.process(viewWidth);
     }
 
+
     @Override
-    public void draw(Canvas canvas) {
-        super.draw(canvas);
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
         Bitmap bitmap = mImageController.getTargetBitmap();
         if (bitmap == null || bitmap.isRecycled()) {
             return;
@@ -132,7 +133,7 @@ public class ScrollWithRvImageView extends View {
     /**
      * 让图片在顶部和底部时随着rv移动
      */
-    private void boundTop() {
+    private void bindTopOrBottom() {
         if (topOffscreen > 0) {
             topOffscreen = 0;
         }
@@ -183,7 +184,7 @@ public class ScrollWithRvImageView extends View {
 //                LogUtil.LOGE("onScrolled-----topDistance:" + topDistance);
                 if (topDistance > 0 && topDistance + viewHeight < rvHeight) {
                     topOffscreen += dy * scaleFactor;
-                    boundTop();
+                    bindTopOrBottom();
                     if (isMeasured) {
                         invalidate();
                     }
@@ -193,7 +194,7 @@ public class ScrollWithRvImageView extends View {
                         if (isScaled) {
                             getLocationOnScreen(viewLocation);
                             topOffscreen = -(viewLocation[1] - rvLocation[1]) * scaleFactor;
-                            boundTop();
+                            bindTopOrBottom();
                             // 当前是非ui线程
                             invalidate();
                         }

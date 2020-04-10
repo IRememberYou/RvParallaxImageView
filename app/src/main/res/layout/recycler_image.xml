@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <per.wsj.lib.ScrollWithRvImageView
+    <per.wsj.lib.RvParallaxImageView
         android:id="@+id/parallaxImageView"
         android:layout_width="match_parent"
         android:layout_height="180dp" />

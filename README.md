@@ -52,7 +52,7 @@ class ImageViewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 }
 ```
 
-**second**，load image in onBindViewHolder
+**second**，bind recyclerView & set image loader controller in onBindViewHolder
 
 ```kotlin
 override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -153,7 +153,7 @@ public class GlideImageController extends BaseImageController {
 }
 ```
 
-or get bitmapwith you image loading library，then call `handleBitmap()`.
+or get bitmap with you image loading library，then call `handleBitmap()`.
 
 for example:
 
