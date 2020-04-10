@@ -6,7 +6,7 @@ An android custom view used on the item of recyclerview to show a full image in 
 
 RvParallaxImageView用在recyclerview的item中，它可以随着recyclerview进行视差效果的移动，进而可以在一个小区域的item中展示一个完整的图片。
 
-RvParallaxImageView没有任何侵入性，默认提供了加载resource中的drawable、和加载本地磁盘上的图片两种方式。如果你需要使用Glide或Picasso网络加载框架加载网络图片，参看demo：GlideImageController/ PicassoImageController。当然你也可以自定义Controller来使用其他图片加载框架进行加载。
+RvParallaxImageView**没有任何侵入性**，默认提供了加载resource中的drawable、和加载本地磁盘上的图片两种方式。如果你需要使用Glide或Picasso网络加载框架加载网络图片，参看demo：GlideImageController/ PicassoImageController。当然你也可以自定义Controller来使用其他图片加载框架进行加载。
 
 RvParallaxImageView适用于在recyclerview的item中显示大的广告图。
 
