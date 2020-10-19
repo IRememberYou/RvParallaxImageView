@@ -60,7 +60,7 @@ class MyAdapter(private val recyclerView: RecyclerView) : RecyclerView.Adapter<R
                     bindRecyclerView(recyclerView)
                     setController(GlideImageController(context, imageUrl))
                 }
-                holder.tvTitle.text = "Glide加载网络图: http://gitstar.com.cn:8000/static/img/1.jpg"
+                holder.tvTitle.text = "Glide加载网络图"
             }
             20 -> {     // picasso加载
                 val imageUrl = "http://gitstar.com.cn:8000/static/img/6.jpg"
@@ -68,7 +68,7 @@ class MyAdapter(private val recyclerView: RecyclerView) : RecyclerView.Adapter<R
                     bindRecyclerView(recyclerView)
                     setController(PicassoImageController(context, imageUrl))
                 }
-                holder.tvTitle.text = "Picasso加载网络图: http://gitstar.com.cn:8000/static/img/6.jpg"
+                holder.tvTitle.text = "Picasso加载网络图"
             }
             else -> {
                 (holder as MyViewHolder).tvTitle.text = "position:$position"
