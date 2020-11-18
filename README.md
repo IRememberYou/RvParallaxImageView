@@ -48,7 +48,7 @@ RvParallaxImageView provide two method to load image by default:
 
 ```kotlin
 class ImageViewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    val parallaxImageView=view.findViewById<ScrollWithRvImageView(R.id.parallaxImageView)
+    val parallaxImageView=view.findViewById<RvParallaxImageView>(R.id.parallaxImageView)
 }
 ```
 
