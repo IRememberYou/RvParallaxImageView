@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.view.View;
+
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -89,6 +90,9 @@ public class RvParallaxImageView extends View {
     public void setController(IController controller) {
         Logger.LOGE("setController");
         mImageController = controller;
+        if (mImageController == null) {
+            throw new NullPointerException("mImageController must be initialized");
+        }
         mImageController.setProcessCallback(new ProcessCallback() {
             @Override
             public void onProcessFinished(int width, int height) {
@@ -116,6 +120,9 @@ public class RvParallaxImageView extends View {
 
         isMeasured = true;
         Logger.LOGE("onMeasure");
+        if (mImageController == null) {
+            throw new NullPointerException("mImageController must be initialized");
+        }
         mImageController.process(viewWidth);
     }
 
@@ -123,6 +130,9 @@ public class RvParallaxImageView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if (mImageController == null) {
+            throw new NullPointerException("mImageController must be initialized");
+        }
         Bitmap bitmap = mImageController.getTargetBitmap();
         if (bitmap == null || bitmap.isRecycled()) {
             return;
@@ -147,6 +157,9 @@ public class RvParallaxImageView extends View {
         super.onAttachedToWindow();
         Logger.LOGE("onAttachedToWindow");
         if (isMeasured) {
+            if (mImageController == null) {
+                throw new NullPointerException("mImageController must be initialized");
+            }
             mImageController.process(viewWidth);
         }
     }

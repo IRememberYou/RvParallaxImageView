@@ -47,7 +47,7 @@ class MyAdapter(private val recyclerView: RecyclerView) : RecyclerView.Adapter<R
                 holder.tvTitle.text = "加载资源图:R.mipmap.girl"
             }
             10 -> {     // 本地图
-                val imagePath = pathPrefix + "a0.jpg";
+                val imagePath = pathPrefix + "a10.jpg";
                 (holder as ImageViewViewHolder).parallaxImageView.apply {
                     bindRecyclerView(recyclerView)
                     setController(LocalImageController(imagePath))

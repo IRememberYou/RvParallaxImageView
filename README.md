@@ -31,7 +31,7 @@ allprojects {
 }
 
 dependencies {
-	implementation 'com.github.giswangsj:RvParallaxImageView:1.0.1'
+	implementation 'com.github.giswangsj:RvParallaxImageView:1.0.2'
 }
 ```
 
@@ -60,6 +60,7 @@ override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         5 -> {      // 资源图片
             (holder as ImageViewViewHolder).parallaxImageView.apply {
                 bindRecyclerView(recyclerView)
+                // 必须设置资源加载控制器
                 setController(ResImageController(context, R.mipmap.girl))
             }
         }
@@ -67,6 +68,7 @@ override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val imagePath = pathPrefix + "a0.jpg";
             (holder as ImageViewViewHolder).parallaxImageView.apply {
                 bindRecyclerView(recyclerView)
+                // 必须设置资源加载控制器
                 setController(LocalImageController(imagePath))
             }
         }
@@ -85,6 +87,7 @@ override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val imageUrl = "http://gitstar.com.cn:8000/static/img/1.jpg"
             (holder as ImageViewViewHolder).parallaxImageView.apply {
                 bindRecyclerView(recyclerView)
+                // 必须设置资源加载控制器
                 setController(GlideImageController(context, imageUrl))
             }
         }
@@ -104,6 +107,7 @@ override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             val imageUrl = "http://gitstar.com.cn:8000/static/img/6.jpg"
             (holder as ImageViewViewHolder).parallaxImageView.apply {
                 bindRecyclerView(recyclerView)
+                // 必须设置资源加载控制器
                 setController(PicassoImageController(context, imageUrl))
             }
         }
